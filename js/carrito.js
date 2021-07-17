@@ -1,35 +1,27 @@
-/******************************************************************************************************* */
-/*                                           Carrito                                                     */
-/******************************************************************************************************* */
-
-//Array para el carrito
 let carritoArray = [];
 
-//Paso a json y al local storage los productos comprados, los productos llegan aqui con un onclick desde el html
 function carrito(compra){
-    //1ero creo la tabla de compras
     crearTablaCompras(compra) 
     
-    //2do hago un array.push + console.log
+    //Adding products to cart
     carritoArray.push(compra);
     console.log(carritoArray); 
     console.log(carritoArray.length);
 
-    //3ero itero con for of y llamo a metodos del constructor
+    //Calling constructor methods
     for (i of carritoArray){
         i.anunciaCompras(carritoArray)
         i.actualizoContador(carritoArray.length)
         i.sumoPrecios(carritoArray)
         }
    
-    //4to guardo lo comprado en el storage
+    //Saving on localstorage
     const productosCarritoJSON = JSON.stringify(carritoArray);
     localStorage.setItem("productosCarritoJSON", productosCarritoJSON);
 }
-//Parseo el JSON con los productos almacenados
 const carritoParseado = JSON.parse(localStorage.getItem("productosCarritoJSON"));
        
-//Itero el carritoParseado. Solo salta error en la consola si no hay nada en el carrito
+//If the cart is empty, an error will be shown on the console.
 for (let cp of carritoParseado){
     carritoParseado.push(new Producto(cp));
     let x = carritoParseado;
@@ -37,10 +29,9 @@ for (let cp of carritoParseado){
     break;}
 
 /******************************************************************************************************* */
-/*                                           Tabla compras + vaciar carrito                              */
+/*                                           DOM.                                                        */
 /******************************************************************************************************* */
 
-//Creo las variables y la tabla de productos seleccionados para ser comprados con DOM y jQuery 
 function crearTablaCompras(i){
     $('#vaciarCarrito').show();
     creaForm() 
@@ -63,7 +54,7 @@ function crearTablaCompras(i){
         divCompras += $("#tablaCompras")
     }
 }
-//Boton interactivo para vaciar el carrito hecho con Sweetalert. Si el usuario da "ok" Borra el json, vacia el array del carrito, oculta el formulario, oculta la tabla de compras y la vacia y reinicia el contador, sino, no vacia el carrito
+
 $("#vaciarCarrito").click(function(){
     swal({
         title: "Estas seguro de vaciar el carrito?",

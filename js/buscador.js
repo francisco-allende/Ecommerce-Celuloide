@@ -1,4 +1,3 @@
-//Buscador del <section> y el buscador
 $('#btnBuscar').click(()=>{
     let buscar = $('#buscador').val();
     buscar = buscar.toLowerCase()
@@ -110,7 +109,7 @@ function buscaAuriculares(){
         $('.lg-card').hide();
 }
 
-//Muestra todas las marcas
+//Shows every brand
 function buscaTodo(){
     $('.samsung-cards').show(),
     $('.motorola-cards').show(),
@@ -120,7 +119,7 @@ function buscaTodo(){
     $('.phillips-cards').show();
 }    
 
-//Mensaje de error para sin resultado
+//Error message when the word was not found
 sinResultado = () => {
     $('.section-cards').hide();  
     const errorBuscadorMsg = `<h1 align="center" style="color: black">Ups! No pudimos encontrar lo que buscaste.</h1>

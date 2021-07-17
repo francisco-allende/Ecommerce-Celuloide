@@ -1,5 +1,4 @@
-    //Creo mi clase constructora.
-    class Producto{
+class Producto{
         constructor(tipo, marca, modelo, precio, id,){
             this.tipo = tipo;
             this.marca = marca;
@@ -7,7 +6,8 @@
             this.precio = precio;
             this.id = id;
         }  
-        anunciaCompras(){ //Made with sweetalert library
+        anunciaCompras(){ 
+            //Made with sweetalert library
             if (carritoArray.length === 1){
                 swal({
                     title: `${this.tipo} ${this.marca} ${this.modelo} añadido al carrito!`,
@@ -125,7 +125,6 @@
         } 
     }
 
-    //Variables que instancian los objetos
     const samsung1 = new Producto("Celular","Samsung","A51", 45000, 100)
     const samsung2 = new Producto("Celular","Samsung","A02S", 40000, 2)
     const samsung3 = new Producto("Celular","Samsung","20FE", 38000, 3)
@@ -144,8 +143,7 @@
  
     const lg1 = new Producto("Celular","LG","K50",20000, 13)
  
-    const phillips1 = new Producto("Auricular","Phillips","OVER EAR Bluetooth BASS", 8000, 14)
-    const phillips2 = new Producto("Auricular","Phillips","Bluetooth Kids", 4000, 15)
+    const phillips1 = new Producto("Auricular","Phillips","OVER EAR Bluetooth BASS", 8000, 14);
+    const phillips2 = new Producto("Auricular","Phillips","Bluetooth Kids", 4000, 15);
  
-    //Los almaceno a todos en un array
     const almacenoProductos = [samsung1, samsung2, samsung3, motorola1, motorola2, motorola3, motorola4, iphone1, iphone2, xiaomi1, xiaomi2, xiaomi3, lg1, phillips1, phillips2]

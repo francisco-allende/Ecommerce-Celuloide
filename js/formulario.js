@@ -1,8 +1,3 @@
-/******************************************************************************************************* */
-/*                                           FORMULARIO                                                  */
-/********************************************************************************************************/
-
-//Guardo datos en un JSON
 function creaForm(){
   $('.ventana_formulario_completa').slideDown(1000)
 } 
@@ -11,7 +6,6 @@ let nombre = $("#nombre")
 let telefono = $("#telefono")
 let direccion = $("#direccion")
 
-//Datos de la tarjeta
 let nroTarjeta = $('#nro_tarjeta')
 let nombreTitular = $('#nombre_titular')
 let expiracion = $('#expiracion')
@@ -24,9 +18,8 @@ let datosPersona = {
   ownerName: "", 
   expiration:"", 
   securityCode:""
-} //JSON
+} 
 
-//Funcion que guarda los datos de la persona en un JSON y este en un localStorage. No puedo usar ajax porque no puedo guardar un usuario que varia en un json (al menos por ahora) 
 const guardoDatosCargados = () => {
     datosPersona.name = nombre.val(); 
     datosPersona.phone = telefono.val();
@@ -36,13 +29,11 @@ const guardoDatosCargados = () => {
     datosPersona.expiration = expiracion.val();
     datosPersona.securityCode = codigoSeguridad.val();
     
-    //Guardo los datos en el storage
     localStorage.datosPersona = JSON.stringify(datosPersona)   
 }
-//Convierto la data guardada en el localStorage en un objeto JS
 const objetoJSPersona = JSON.parse(localStorage.getItem("datosPersona"))
- 
-//Metodo.change()
+
+//Method.change
 nombre.change(guardoDatosCargados),
 telefono.change(guardoDatosCargados),
 direccion.change(guardoDatosCargados),
@@ -51,7 +42,7 @@ nombreTitular.change(guardoDatosCargados),
 expiracion.change(guardoDatosCargados),
 codigoSeguridad.change(guardoDatosCargados)
 
-//Metodo.focus() 
+//Method.focus
 nombre.focus(function(){
   nombre.css('background', 'lightblue')
 }),
@@ -74,7 +65,7 @@ codigoSeguridad.focus(function(){
   codigoSeguridad.css('background', '#D3D3D3')
 });
 
-//Metodo.blur()
+//Method.blur()
 nombre.blur(function(){
   nombre.css("background", "#fff")
 }),
@@ -85,18 +76,14 @@ direccion.blur(function(){
   direccion.css("background", "#fff")
 });
 
-//Metodo.submit(). Llama a un metodo constructor    
+//Method.submit().   
 $('#btnConfirmarCompra').click(()=>{
   for (let i of carritoArray){
     i.domCompraFinal()
   }
 })
 
-/**************************************************************************************************************** */
-/*Este codigo que empieza ahora, de la linea 51 a la 92 no fue escrito por mi. Lo previo de la linea 1 a la 44 si, todo codeado por mi. 
-Este bloque de codigo se encarga del dropdown del formulario para cambiar la targeta. 
-Es el único bloque de codigo no escrito por mi en todo el proyecto con algunas propiedades de css que este formulario incluia*/
-/****************************************************************************************************************** */
+//Form dropdwdown and card animation
 let cardDrop = $('#card-dropdown');
 let activeDropdown;
 cardDrop.click(function(){

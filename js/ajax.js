@@ -1,12 +1,6 @@
-/******************************************************************************************************* */
-/*                                           Ajax + msj errror                                           */
-/******************************************************************************************************* */
-
-//Variables para el ajax
 let todosLosProductos = []
 const URLJSON = "json/JSON.json"
 
-//Ajax. Para forzar el error, poner otra cosa en el success
 $('.btn').click(() => { 
     $.get(URLJSON, function (respuesta, status) {
         if (status === "success"){
