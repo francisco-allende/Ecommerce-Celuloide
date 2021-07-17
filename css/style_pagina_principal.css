@@ -1,0 +1,293 @@
+:root {
+    --clr-bordo: #8b0000;
+    --clr-white: #ffffff;
+    --clr-dark: #1a1110;
+    --clr-violet: rgba(139, 0, 52, 1);
+
+    --ff-p: 'Roboto', sans-serif;
+    --ff-h: 'Montserrat', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+body {
+    font-family: var(--ff-p);
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--ff-h);
+    color: var(--clr-white);
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 1em;
+
+}
+
+.section__search {
+    background: linear-gradient(180deg, rgba(139, 0, 0, 1) 0%, rgba(139, 28, 0, 1) 52%, rgba(139, 30, 0, 1) 100%);
+}
+
+.input-group {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+
+/*---------------
+--    NAV      --
+---------------*/
+
+header {
+    background: var(--clr-bordo);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.nav__left {
+    display: flex;
+    padding: 1em;
+}
+
+.nav__link {
+    display: flex;
+    padding: .4em;
+    margin-left: .8em;
+    color: black;
+    background-color: #fff;
+    border-radius: 2em;
+    text-decoration: none;
+}
+
+.nav__link--button {
+    padding: .4em;
+    margin-left: 1em;
+}
+
+.nav__link--button:hover {
+    text-decoration: none;
+    color: #8b0000;
+}
+
+.nav__rigth {
+    display: flex;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+
+/*------------
+--   MAIN   --
+------------*/
+
+.contain__all {
+    display: flex;
+}
+
+/*-------------
+--   ASIDE   --
+-------------*/
+
+.sidebar {
+    width: 33%;
+    margin: 1em;
+    padding: 1em;
+    color: #fff;
+    border-radius: 1em;
+    background: linear-gradient(180deg, rgba(139, 0, 0, 1) 0%, rgba(139, 0, 52, 1) 50%, rgba(139, 0, 52, 1) 100%);
+}
+
+/*-------------
+--   CARDS   --
+-------------*/
+
+.card {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.card-deck {
+    width: 100%;
+}
+
+.card-title {
+    text-align: center;
+}
+
+img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+
+/****************
+  Tabla compras
+****************/
+
+.divCompras {
+    display: none;
+    width: 60%;
+    margin: 1.5em 0 2em 20% ;
+    padding: 1em;
+    background-color: var(--clr-bordo);
+    color: var(--clr-white);
+    border-radius: 1em;
+    border: 2px solid var(--clr-dark);
+}
+
+.estilo {
+    background-color: var(--clr-bordo);
+    padding: 2em;
+    margin-top: 2em;
+}
+
+#tablaCompras{
+    width: 100%;
+}
+
+hr{
+    height: 100px;
+    border: 100px solid rgb(17, 1, 1);
+}
+
+
+
+/***************
+    Formulario
+***************/
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2em;
+    color: var(--clr-dark);
+}
+
+
+
+/*---------------
+--    FOOTER   --
+---------------*/
+
+
+footer {
+    padding: 1em;
+    background: var(--clr-dark);
+    margin-top: 1em;
+}
+
+.footer-con-flex {
+    justify-content: space-around;
+    display: flex;
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
+    /*Con este "min()" y su contenido, le digo que se quede siempre entre un minimo del 90% de la pantalla
+    y un maximo de 70.5rem. Es responsive. Siempre deja entonces un padding en los bordes de la pantalla.*/
+}
+
+.footer-uno {
+    margin-right: 2em;
+    text-align: center;
+}
+
+.footer-dos {
+    margin-right: 0;
+    text-align: center;
+}
+
+.bg-black,
+.bg-black h2  {
+    color: var(--clr-white);
+}
+
+
+
+/*--------
+-- MEDIA -- 
+--------*/
+
+/*todo lo que quede raro lo paso a block*/
+@media(max-width:800px) { 
+
+    #computer__h1 {
+        display: none;
+    }
+
+    #responsive__h1__visualized {
+        text-align: center;
+    }
+
+    .contain__all {
+        display: block;
+    }
+
+    /*img, main, todo aca*/
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        margin-left: 0;
+        background: var(--clr-bordo);
+    }
+
+    .sidebar-title {
+        text-align: center;
+    }
+
+    .nav__link--button {
+        padding: .25em .5em;
+    }
+    .divCompras{
+        width: 90% !important;
+        margin: 1em !important;
+    }
+
+    #formis{
+        margin: 1em;
+    }
+
+}
+/*Con este media oculto el nav del celular cuando la pantalla esta para la pc*/
+@media(min-width:800px) {
+    #responsive__h1__visualized {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+[
+    {
+    "tipo": "Celular",
+    "marca": "Samsung",
+    "modelo": "A51",
+    "precio": 45000,
+    "id": 1
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Samsung",
+    "modelo": "A02s",
+    "precio": 40000,
+    "id": 2
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Samsung",
+    "modelo": "20FE",
+    "precio": 38000,
+    "id": 3
+    }, 
+    {
+    "tipo": "Celular",
+    "marca": "Motorola",
+    "modelo": "EDGEXT2063-3",
+    "precio": 79999,
+    "id": 4
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Motorola",
+    "modelo": "ONE FUSION XT2073-2",
+    "precio": 69999,
+    "id": 5
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Motorola",
+    "modelo": "E6S XT2053-2",
+    "precio": 39999,
+    "id": 6
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Iphone",
+    "modelo": "11 PRO",
+    "precio": 249999,
+    "id": 7
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Iphone",
+    "modelo": "10 PRO",
+    "precio": 220000,
+    "id": 8
+    }, 
+    {
+    "tipo": "Celular",
+    "marca": "Xiaomi",
+    "modelo": "REDMI 9",
+    "precio": 29999,
+    "id": 9
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Xiaomi",
+    "modelo": "MI 9T",
+    "precio": 49999,
+    "id": 10
+    },
+    {
+    "tipo": "Celular",
+    "marca": "Xiaomi",
+    "modelo": "REDMI 9S",
+    "precio": 33000,
+    "id": 11
+    },
+    {
+    "tipo": "Celular",
+    "marca": "LG",
+    "modelo": "K50",
+    "precio": 19000,
+    "id": 12
+    },
+    {
+    "tipo": "Auricular",
+    "marca": "Motorola",
+    "modelo": "Bluetooth ESCAPE-220",
+    "precio": 4999,
+    "id": 13
+    },
+    {
+    "tipo": "Auricular",
+    "marca": "Phillips",
+    "modelo": "OVER EAR Bluetooth",
+    "precio": 7999,
+    "id": 14
+    }, 
+    {
+    "tipo": "Auricular",
+    "marca": "Phillips",
+    "modelo": "Bluetooth Kids",
+    "precio": 4000,
+    "id": 15
+    }   
+] 

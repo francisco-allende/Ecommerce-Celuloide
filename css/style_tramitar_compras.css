@@ -1,0 +1,51 @@
+:root {
+    --clr-bordo: #8b0000;
+    --clr-white: #ffffff;
+    --clr-dark: #1a1110;
+
+    --ff-p: 'Roboto', sans-serif;
+    --ff-h: 'Montserrat', sans-serif;
+    /*BUSCAR OTRA PARA FF-H*/
+}
+
+.container {
+    color: var(--clr-white);
+}
+
+.estilo {
+    background-color: var(--clr-bordo);
+    padding: 2em;
+    margin-top: 2em;
+}
+
+.divTabla {
+    display: none;
+    background-color: var(--clr-bordo);
+    border-radius: 1em;
+}
+
+.column__left {
+    padding-left: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+} 
+
+.divCompras {
+    display: none;
+    background-color: var(--clr-bordo);
+    border-radius: 1em;
+}
+
+#linea__horizontal {
+    height: 0.5em;
+    width: 100%;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2em;
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Required meta tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Title-->
+    <title>Desafio final</title>
+
+    <!--CSS, Bootstrap 4 & Google fonts api-->
+    <link rel="stylesheet" href="css/style_pagina_principal.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body style="display: none;">
+
+    <header>
+        <h1 id=responsive__h1__visualized>CELULOIDE</h1>
+    <!--nav que funciona como container-->
+            <nav class="nav">
+                <div class="nav__left">
+                    <a href="#" id="animar"><img src="imagenes/logo_empresa.png" width="50em" alt="logo empresa" id="logo_empresa"></a>
+                </div>
+                <div>
+                    <h1 id=computer__h1>CELULOIDE</h1>
+                </div>
+                <div class="nav__rigth">
+                    <button id="btnTablaCarrito" style="background-color: #8b0000; border: none;"><img src="imagenes/carrito_blanco.png.png"  width="50em" alt="carrito de compras"></button>
+                    <li><a href="#footer" class="nav__link nav__link--button" id="btn_transicion_lenta">Contactanos</a></li>
+                </div>
+            </nav>
+    </header>
+
+    <!--section con buscador-->
+    <section class="section__search">
+        <br>
+        <div class="container">
+            <div class="input-group">
+                <button type="button" class="btn btn-success" onclick="buscaTodo()" style="margin-right: 1em;">Volver para atrás</button>
+                <input type="search" class="form-control rounded" placeholder="Buscar" aria-label="Buscador"
+                  aria-describedby="search-addon" id="buscador"/>
+                <button type="button" class="btn btn-success" id="btnBuscar" style="margin-left: 1em;">Buscar</button>
+              </div>
+        </div>
+        <br>
+    </section>
+
+<!-- Boton vaciar carrito -->
+<div style="display: none; margin: 2em 25% 2em 25%; text-align: center; margin-bottom: 2em;" id="vaciarCarrito"><button type="button" class="btn btn-primary" id="borrar" style=" font-size: 1.5em;">Vaciar carrito</button></div>
+   
+<!--Tabla compras + contador-->
+   <div class="container">
+    <div style="display: none; font-size: large; text-align: center; margin-top: 3em; margin-left: 14%; border: 2px solid black; width: 72%; border-radius: 1em;" id="contador"></div>
+</div> 
+<div class="divCompras" id="div_show_shop">
+    <h1 align="center" > Tu carrito</h1>
+    <h1 style="display: none; text-align: center;" id="h1_descuento">Descuento del IVA activado!</h1>
+    <hr style="border: 2px solid rgb(17, 1, 1);">
+    <table class="" id="tablaCompras">
+        <th id="thProducto"></th>
+        <th id="thImporte"></th>
+    </table>
+    <hr style="border: 2px solid rgb(17, 1, 1);">
+    <table style="font-size: large; width: 96%; background-color: #277218; color: #fff; border:1px solid #fdfdfc;" id="divTotal">
+        <th style="padding: .4em;">Total <span style="display: none;" id="th_descuento">con descuento</span></th>
+        <th style="padding: .4em; text-align: right;" id="precioTotal"></th>
+    </table>
+</div>
+<!--Fin tabla compras-->
+
+
+<!--Formulario-->
+<div style="margin: 1em; border-radius: 1em; display: none;" class="ventana_formulario_completa" id="div_show_form">
+    <h1 style="text-align: center; color: #1a1110; margin-bottom: 1em !important">Estas a solo un paso de finalizar tu compra! </h1>
+    <div class='window' style="background-color: #fdf5f5;">
+      <div class='order-info'>   
+        <div class='order-info-content'>
+          <div class="container" style="width: 50%">
+            <div class="container" style="display:flex; justify-content: center; margin-top: 1em;">
+                <form id="formulario"><!--style='display:none;'> Aca derberia haber un display none?-->
+                    <h2 align="center" style="margin-top: 2em; margin-bottom: 1.8em; color: #1a1110">Finalizá tu compra</h2>
+                    <div class="formulario_original">
+                        <h5>Nombre completo</h5>
+                            <input type="text" id="nombre">
+                        <h5>Número de teléfono</h5>
+                            <input type="number" id="telefono">
+                        <h5>Dirección</h5>
+                            <input type="text" id="direccion">
+                    </div>
+                </form>
+            </div>
+          </div>
+  </div>
+  </div>
+          <div class='credit-info'>
+            <div class='credit-info-content'>
+              <table class='half-input-table'>
+                <tr><h5 style=" text-align: center;">Por favor seleccione su tarjeta:</h5>
+                    <td><div class='dropdown' id='card-dropdown' style="border: 1px solid #fff; border-radius: 1em; width: 50%; margin-left: 25%;"><div class='dropdown-btn' id='current-card' style="font-size: medium;">Visa</div>
+                  <div class='dropdown-select' style="background-color: rgb(139, 0, 52, 1); border: 1px solid #fff; width: 100%; border-radius: 1em; text-align: left;">
+                  <ul>
+                    <li style="font-size: medium;" id="master_hover">Master Card</li>
+                    <li style="font-size: medium;" id="american_hover">American Express</li>
+                    </ul></div>
+                  </div>
+                 </td></tr>
+              </table>
+              <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'></img>
+              <td><h5>Número de la tarjeta</h5></td>
+              <input class='input-field' id="nro_tarjeta" type="number" style="height: 1.4em;"></input>
+              <td><h5 style="margin-top: 1em;">Nombre del titular de la tarjeta</h5></td>
+              <input class='input-field' id="nombre_titular" style="height: 1.4em;"></input>
+              <table class='half-input-table'>
+                <tr>
+                  <td><h5 style="margin-top: .8em;">Fecha de expiración</h5>
+                    <input class='input-field' id="expiracion" type="date" style="width: 90%; height: 1.4em;"></input>
+                  </td>
+                  <td><h5 style="margin-top: .8em;">CVV</h5>
+                    <input class='input-field' id="codigo_seguridad" type="number" style="height: 1.4em;"></input>
+                  </td>
+                </tr>
+              </table>
+              <p align="center"><button type="button" class="btn btn-success" id="btnConfirmarCompra">Confirmar compra</button></p>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+<br>
+<!--Fin formulario-->
+
+
+<!--Cards con productos y Aside izquierdo con menu-->
+<main>
+    <div class="contain__all" id="aside_menu">
+        <!--inicio del aside-->
+        <aside class="sidebar">
+            <button onclick="infoIva(infoIva)"; style="text-decoration: none; list-style: none; background-color: #8b0000; border: none;"><h3 style="text-align: center;">Aprovecha nuestras<strong> Promociones!</strong></h3>
+            <h3 style="text-align: center;">Llevando dos o más productos</h3> 
+            <h3 style="text-align: center;"><strong>te restamos el iva</strong></h3></button> 
+            <hr style="border: 2px solid #fff;">
+            <h4 class="sidebar-title">Nuestros productos</h4>
+            <h5>Categorias:</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnSamsung" value="option1" checked onclick="buscaSamsung()">
+                <label class="form-check-label" for="exampleRadios1">Samsung</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnMotorola" value="option1" checked onclick="buscaMotorola()">
+                <label class="form-check-label" for="exampleRadios1">Motorola</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnIphone" value="option1" checked onclick="buscaIphone()">
+                <label class="form-check-label" for="exampleRadios1">Iphone</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnXiaomi" value="option1" checked onclick="buscaXiaomi()">
+                <label class="form-check-label" for="exampleRadios1">Xiaomi</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnLG" value="option1" checked onclick="buscaLG()">
+                <label class="form-check-label" for="exampleRadios1">LG</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnPhillips" value="option1" checked onclick="buscaPhillips()">
+                <label class="form-check-label" for="exampleRadios1">Phillips</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnAuriculares" value="option1" checked onclick="buscaAuriculares()">
+                <label class="form-check-label" for="exampleRadios1">Auriculares</label>
+            </div>
+
+            <div class="form-check todas-las-cards">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btnAuriculares" value="option1" checked onclick="buscaTodo()">
+                <label class="form-check-label" for="exampleRadios1"><strong>Ver todos</strong></label>
+            </div>
+        </aside>
+
+        <!--Anuncia error en el buscador, default del switch-->
+        <div class="error-buscador" style="display: none;"></div>
+
+        <!--inicio de las cards-->
+        <section class="section-cards">
+            <!--Samsung-->
+            <div class="card-deck samsung-cards">
+                <div class="card">
+                    <img src="imagenes/samsung_a51_45k.png" class="card-img-top" alt="samsung_a51_45k">
+                        <div class="card-body">
+                            <h5 class="card-title">Samsung A51 $45.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(samsung1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img src="imagenes/samsung_a02s_40k.png" class="card-img-top" alt="samsung_a02s_40k">
+                        <div class="card-body">
+                            <h5 class="card-title">Samsung A02S $39.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(samsung2)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img src="imagenes/samsung_s20fe_38k.png" class="card-img-top" alt="samsung_s20fe_38k">
+                        <div class="card-body">
+                            <h5 class="card-title">Samsung 20FE $38.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(samsung3)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+            </div>
+            
+            <!--Motorola-->
+            <div class="card-deck motorola-cards" id="oculto-celus-card">
+                <div class="card">
+                    <img src="imagenes/motorola_EDGEXT2063-3_79,999k.png" class="card-img-top" alt="motorola_EDGEXT2063-3_79,999k">
+                        <div class="card-body">
+                            <h5 class="card-title">Motorola EDGEXT2063-3 $79.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(motorola1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img src="imagenes/motorola_ONE_FUSION XT2073-2_75k.png" class="card-img-top" alt="motorola_ONE_FUSION XT2073-2_70k">
+                        <div class="card-body">
+                            <h5 class="card-title">Motorola ONE FUSION XT2073-2 $69.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(motorola2)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img src="imagenes/motorola_E6S XT2053-2_45k.png" class="card-img-top" alt="motorola_E6S XT2053-2_40k">
+                        <div class="card-body">
+                            <h5 class="card-title">Motorola E6S XT2053-2 $39.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(motorola3)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+            </div>
+
+            <!--iphone-->
+            <div class="card-deck iphone-cards">
+                <div class="card">
+                    <img src="imagenes/iphone_11_pro_250k.png" class="card-img-top" alt="Iphone_11_PRO_$249.999">
+                        <div class="card-body">
+                            <h5 class="card-title">Iphone 11 PRO $249.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(iphone1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card">
+                    <img src="imagenes/iphone_11_pro_funda_500.png" class="card-img-top" alt="Iphone_10_PRO_$220.000">
+                        <div class="card-body">
+                            <h5 class="card-title">Iphone 10 PRO $220.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(iphone2)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+
+                <!--Xiaomi-->
+                <div class="card" id="oculto-xiaomi">
+                    <img src="imagenes/xiaomi_redmi_9_33k.png" class="card-img-top" alt="xiaomi_redmi_9_30k">
+                        <div class="card-body">
+                            <h5 class="card-title">Xiaomi REDMI 9 $29.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(xiaomi1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+            </div>
+            <!--Xiaomi + LG-->
+            <div class="card-deck">
+                <div class="card xiaomi-cards">
+                    <img src="imagenes/xiaomi_MI_9T_66k.png" class="card-img-top" alt="xiaomi_MI_9T_50k">
+                        <div class="card-body">
+                            <h5 class="card-title">Xiaomi MI 9T $49.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(xiaomi2)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card xiaomi-cards">
+                    <img src="imagenes/xiaomi_Redmi Note 9s_35k.png" class="card-img-top" alt="xiaomi_Redmi Note 9s_33k">
+                        <div class="card-body">
+                            <h5 class="card-title">Xiaomi REDMI 9S $33.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(xiaomi3)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+
+                <!--LG-->
+                <div class="card lg-card">
+                    <img src="imagenes/lg_k50_25k.png" class="card-img-top" alt="lg_k50_20k">
+                        <div class="card-body">
+                            <h5 class="card-title">LG K50 $19.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(lg1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+            </div>
+
+            <!--Auriculares-->
+            <div class="card-deck auricular-cards" id="achicar-card">
+                <div class="card motorola-cards">
+                    <img src="imagenes/auricular_motorola_BLUETOOTH_MOTOROLA_ESCAPE-220_5k.png" class="card-img-top" alt="auricular_motorola_BLUETOOTH_MOTOROLA_ESCAPE-220_5k">
+                        <div class="card-body">
+                            <h5 class="card-title">Auricular Motorola Bluetooth ESCAPE-220 $4.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(motorola4)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card phillips-cards">
+                    <img src="imagenes/auricular_phillips_over_ear_bluetooth_bass_8k.png" class="card-img-top" alt="auricular_phillips_over_ear_bluetooth_bass_8k">
+                        <div class="card-body">
+                            <h5 class="card-title">Auricular Phillips OVER EAR Bluetooth BASS $7.999</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(phillips1)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+                <div class="card phillips-cards">
+                    <img src="imagenes/auricular_phillips_bt_kids_5k.png" class="card-img-top" alt="auricular_phillips_bt_kids_4k">
+                        <div class="card-body">
+                            <h5 class="card-title">Auricular Phillips Bluetooth Kids $4.000</h5>
+                            <p align="center"><button class="btn btn-success" onclick="carrito(phillips2)">Agregar al carrito</button></p>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!--Footer-->
+    <footer class="bg-black" id="footer">
+        <div class="footer-con-flex">
+            <div class="split">
+                <div class="footer-uno text-center">
+                    <h2>Contacto:</h2>
+                    <a href="mailto:franallende2000@gmail.com?Subject=Aqui%20el%20asunto%20del%20mail"><img src="imagenes/blanco_gmail.png" alt="logo gmail"></a>
+                    <a href="#"><img src="imagenes/wpp_logo_white.png" width="50em" alt="logo whatsapp"></a><p>+54 1234567890</p><br>
+                    <p align=""><textarea>Haz tu consulta.</textarea></p>
+                    <p align=""><button type="button" class="btn btn-primary">Enviar</button></p>
+                </div>
+            </div>
+            <div class="split">                  
+                <div class="footer-dos">                          
+                    <h2>Seguinos en las redes!</h2><br>                          
+                    <a href="https://www.instagram.com/franciscoallende1917/?hl=es-la" target="_blank"><img src="imagenes/instagram_logo.png" width="50em" alt="logo instagram"></a>                            
+                    <a href="https://www.facebook.com/francisco.allende.96" target="_blank"><img src="imagenes/facebook_blanco_full.png" width="50em" alt="logo facebook"></a>
+                    <a href="https://twitter.com/FlagsMashupBot/status/1362587724356734980" target="_blank"><img src="imagenes/tw_blanco.png" width="50em" alt="logo tw"></a>                                                    
+                </div>
+            </div>
+        </div>   
+    </footer>
+    <!--Msj de compra exitosa-->
+    <div align="center" id="mostrar-una-compra" style="display: none; margin-top: 1em; font-size: 1.5em;"></div>
+    <div id="mostrar-muchas-compras" style="display: none;"></div>
+    <!--Mensaje de error de conexion-->
+    <div style="display:none; margin-top: 1em; color: #fff;"  id="error"></div>
+ 
+    <!--jQuery minified-->
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+
+    <!--Sweet alert library-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!--JavaScript-->
+    <script  src="js/constructor.js"></script>
+    <script  src="json/JSON.json"></script>
+    <script  src="js/carrito.js"></script>
+    <script  src="js/ajax.js"></script>
+    <script  src="js/buscador.js"></script>
+    <script  src="js/animaciones.js"></script>
+    <script  src="js/formulario.js"></script>
+</body>
+</html>
