@@ -31,6 +31,19 @@ for (let cp of carritoParseado){
 /******************************************************************************************************* */
 /*                                           DOM.                                                        */
 /******************************************************************************************************* */
+function crearCheck(){
+    let marcasArray = ["Samsung", "Motorola", "Iphone", "Xiaomi", "LG", "Phillips"]
+    for(marca of marcasArray){
+        $('#git-test').append(
+            `<div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="btn${marca}" value="option1" checked onclick="busca${marca}()">
+                <label class="form-check-label" for="exampleRadios1">${marca}</label>
+            </div>`
+        )
+    }
+}
+crearCheck()
+
 
 function crearTablaCompras(i){
     $('#vaciarCarrito').show();
