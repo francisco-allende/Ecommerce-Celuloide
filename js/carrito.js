@@ -34,7 +34,7 @@ for (let cp of carritoParseado){
 function crearCheck(){
     let marcasArray = ["Samsung", "Motorola", "Iphone", "Xiaomi", "LG", "Phillips"]
     for(marca of marcasArray){
-        $('#git-test').append(
+        $('#asideDeMarcas').append(
             `<div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="btn${marca}" value="option1" checked onclick="busca${marca}()">
                 <label class="form-check-label" for="exampleRadios1">${marca}</label>
