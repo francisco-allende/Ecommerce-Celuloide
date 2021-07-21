@@ -37,7 +37,7 @@ $('#btnBuscar').click(()=>{
         break;
 
         default:
-            sinResultado(errorBuscadorMsg)
+            sinResultado()
         break;
     }
 })
