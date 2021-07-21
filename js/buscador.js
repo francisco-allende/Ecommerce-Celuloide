@@ -125,7 +125,7 @@ sinResultado = () => {
     const errorBuscadorMsg = `<h1 align="center" style="color: black">Ups! No pudimos encontrar lo que buscaste.</h1>
     <h2 align="center" style="color: black">Probá de nuevo buscando solo el nombre de la marca 😉</h2>`
             
-    $('.error-buscador').append(errorBuscador);
+    $('.error-buscador').append(errorBuscadorMsg);
     $('.error-buscador').show();
     setTimeout(()=> 
         {
